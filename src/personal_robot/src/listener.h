@@ -10,9 +10,11 @@
 #include <stdio.h>
 #include<thread>
 #include "std_msgs/String.h"
+#include "personal_robot.h"
 //#include "../../../../../../../../usr/include/c++/7/thread"
 
 namespace gazebo{
+class personal_robot;
 class Listener {
     private:
      std::unique_ptr<ros::NodeHandle> node;
@@ -20,9 +22,12 @@ class Listener {
      ros::Publisher publisher;
      ros::CallbackQueue cola;
      ros::CallbackQueue cola2;
+
      std::thread threadColas;
+     personal_robot * robot;
+     //static int8_t  counter;
     public:
-        void init();
+        void init(personal_robot * robot);
         void listener(const std_msgs::String::ConstPtr& msg);
         //Este methodo nos va a servir para ver que nodos estan suscritos
         static void conexion(const ros::SingleSubscriberPublisher&);

@@ -131,9 +131,8 @@ include_directories(
 add_library(${PROJECT_NAME}
 		src/personal_robot.cpp
 		src/listener.cpp
+		src/command.cpp
 
-		#src/comandos.cpp
-		#codigo/Laser.cpp
 		)
 #add_library(mi_laser
 #		src/sensores/Laser.cpp
